@@ -87,16 +87,11 @@ function LoginPage({ onLogin }) {
           onLogin();
           navigate("/home");
         }   
-        // else if (emailError === true && passwordError === true) {
-        //     setUserRegisteredError(false);
-        // }
-       if(registeredEmail === email && registeredPassword !== password){
-          setRegistryErrorMessage('Password is wrong')
-            // setUserRegisteredError(true);
-            // if email 
+        if( email !==  registeredEmail  ){
+          setRegistryErrorMessage('This email address is not registered with us')
         }
-        if(registeredEmail !== email && registeredPassword !== password){
-          setRegistryErrorMessage("This email is not registered with us")
+       if( password !== registeredPassword ){
+          setRegistryErrorMessage('Password is wrong')
         }
       }
     );
