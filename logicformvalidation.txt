@@ -1,0 +1,27 @@
+- check if the email is in valid format or not 
+   - if not then, error message of invalid email format
+- check if the password is in valid format or not 
+   - if not then, error message of invalid password format
+
+-if the email is validated, then compare the input email to registeredUser object array
+   -if it matched then go to home page 
+   -if not then error message of "you are not registered"
+
+if the password is validated, then compare the input password to registeredUser object array
+   -if it matched then go to home page 
+   -if not then error message of "you are not registered"
+
+
+
+what to do today? (17 January 2024)
+
+- button should be disabled if the email or password format is not valid
+- out of focus event for input fields -> and turn border red 
+- if the format is valid then enable the button
+- when login button clicked, check if it matches with any of the email or password values or not.
+
+
+
+// if the format is valid and then if the entered email and password is equal to any of the email and password,
+// then it should consolelog that email and password.
+// they are set of email and password -> if the email is different and password is different then it should consoole.log the email

@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700;900&display=swap');
+
+.navbar{
+  background: #9f9e9f;
+  padding: 16px;
+  height: 50px;
+  display: flex;  
+  gap: 1em;
+  text-align: center;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+}
+
+.link{
+  color: white;
+  font-family: 'Rubik', sans-serif;
+}
+
+.active{
+  color: yellow;
+  font-family: 'Rubik', sans-serif;
+}
+
+text{
+  font-family: 'Rubik', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #8f8f8f;
+  font-size: 30px;
+  font-weight: 100;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  /* text-transform: uppercase; */
+
+  &::before {
+    content: attr(data-item);
+    transition: 0.5s;
+    color: #9361ea;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+}
+
+
+.section{
+  justify-content: center ;
+  text-align: center;
+}
+
+p {
+  margin: 1px;
+  font-size:  15px;
+  color: #000000;
+  font-weight: 100;
+  transition: all 1s ease-in-out;
+  position: relative;
+
+  &::before {
+    content: attr(data-item);
+    transition: all 1s ease-in-out;
+    color: #9361ea;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  background-color:#9f9e9f;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  color: #000000;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Rubik', sans-serif;
+}
+
+button {
+  --color: #9361ea;
+  font-family: inherit;
+  display: inline-block;
+  width: 6em;
+  height: 2.6em;
+  line-height: 2.5em;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 25px;
+  font-size: 17px;
+  z-index: 1;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 6px;
+  position: relative;
+}
+
+
+.login-form {
+  width: 350px;
+  margin: 15px auto; 
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.login-form h1 {
+  text-align: center;
+}
+
+.login-form input {
+  width: 330px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+.login-form input:user-valid {
+  width: 330px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.login-form input:hover {
+  width: 330px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 2px solid #4c6fee;
+  border-radius: 5px;
+  text-align: center;
+} 
+
+
+
+/* .login-form input:valid{
+  width: 330px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #00ee34;
+  border-radius: 5px;
+  text-align: center;
+}  */
+
+.login-form button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  justify-content: auto;
+  justify-items: auto;
+}
+
+
+

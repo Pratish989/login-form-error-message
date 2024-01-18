@@ -1,0 +1,191 @@
+when  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  {/* { !emptyEmailError && !emptyPasswordError  && userRegistered && (<p style ={{color : "red"}}> Sorry, we can't find an account with this email address</p>)} */}
+        {/* {userRegistered && (<p style ={{color : "red"}}> Sorry, we can't find an account with this email address</p>)} */}
+
+
+  const isPasswordValid = (password) => {
+      const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,}$/;
+      if (password == "") {
+        return false;
+      }
+      return passwordRegex.test(password);
+    }
+/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,6}$|^$|/
+
+import { useState } from "react";
+export default
+function LoginPage({ onLogin }) {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [userNotRegistered, setUserNotRegistered] = useState(false);
+
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+  const isValidEmail = emailRegex.test(email);
+
+  const passwordRegex =
+    /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
+  const isValidPassword = passwordRegex.test(password);
+
+  const submitLogin = (event) => {
+    event.preventDefault();
+    if (!isValidEmail) {
+      setEmailError(true);
+    } else {
+      setEmailError(false);
+    }
+
+    if (!isValidPassword) {
+      setPasswordError(true);
+    } else {
+      setPasswordError(false);
+    }
+    if (isValidEmail && isValidPassword) {
+      setUserNotRegistered(true);
+      console.log("isValidEmail and isValidPassword are true");
+    } else {
+      setUserNotRegistered(false);
+    }
+
+    let loggedIn = false;
+    registeredUsers.forEach(
+      ({ email: registeredEmail, password: registeredPassword }) => {
+        if (registeredEmail === email && registeredPassword === password) {
+          console.log("logged in");
+          loggedIn = true;
+          onLogin();
+          navigate("/home");
+        }
+      }
+    );
+    if (!loggedIn) {
+      setUserNotRegistered(true);
+      console.log("User not registered");
+    } else {
+      setUserNotRegistered(false);
+    }
+  };
+
+  return (
+    <div className="login-form">
+      <h2>Login Form 💼</h2>
+      <form onSubmit={submitLogin}>
+        <Input
+          type="email"
+          value={email}
+          placeholder="Email"
+          onChange={(event) => setEmail(event.target.value)}
+          style={{ borderColor: emailError ? "red" : (userNotRegistered ? "black" : "initial") }}
+          required
+        />
+        {emailError && <p style={{ color: "red" }}>Invalid Email Format</p>}
+        {userNotRegistered && <p style={{ color: "red" }}>User not registered</p>}
+        <br />
+        <Input
+          type="password"
+          value={password}
+          placeholder="Password"
+          onChange={(event) => setPassword(event.target.value)}
+          style={{ borderColor: passwordError ? "red" : (userNotRegistered ? "black" : "initial") }}
+          required
+        />
+        {passwordError && <p style={{ color: "red" }}>Invalid Password Format</p>}
+        {userNotRegistered && <p style={{ color: "red" }}>User not registered</p>}
+        <br />
+        <Button />
+      </form>
+    </div>
+  );
+}
+
+
+
+
+import React, { useState } from "react";
+
+const InputField = () => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
+  return (
+    <input
+      type="text"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        border: isHovering ? "1px solid red" : "1px solid black",
+      }}
+    />
+  );
+};
